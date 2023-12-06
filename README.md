@@ -4,10 +4,22 @@
 
 Create Spring Boot project, using starter Lombok.
 
+use environment variables, write **src/main/resources/application.yml** file:
+
+```yml
+timeout_seconds: 10
+```
+
 Build dist:
 
 ```cmd
 sh mvnw package
+```
+
+Or package skiping test with:
+
+```cmd
+sh mvnw package -DskipTests
 ```
 
 
@@ -26,7 +38,6 @@ docker build -t us-central1-docker.pkg.dev/temporal-283603/demo/helloworld:0 .
 Login in artifact repository using key by service account, asign roles:
 
 - Artifact Registry Writer
-- Storage Admin
 
 ```cmd
 cat keys/gcp_key.json | docker login -u _json_key --password-stdin \
